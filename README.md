@@ -7,7 +7,7 @@ This repository is part of my learning journey in DSA. I use it to practice prob
 ## Progress Log
 
 - Arrays (Part 1)
-    Reverse Array Extra Space [21-04-2026  5:36 pm]
+    Reverse Array Extra Space [21-04-2026  5:36 PM]
 
 ## About
 
