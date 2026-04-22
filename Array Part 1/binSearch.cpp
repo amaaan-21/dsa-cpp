@@ -29,6 +29,6 @@ int main (){
     int arr[] ={2, 4, 6, 8, 10, 12, 14, 16 };
     int n = sizeof(arr)/ sizeof(int);
 
-    std::cout<<binSearch(arr, n, 12)<<"\n"; 
+    std::cout<<binSearch(arr, n, 44)<<"\n"; 
     return 0;
 }
