@@ -1,4 +1,5 @@
 //maximum subarray sum BRUTE FORCE
+//TIME COMPLEXITY = O(N^3) 
 #include<iostream>
 void maxSumSubArr(int *arr, int n){
     int maxSum=INT_MIN;
