@@ -1,7 +1,7 @@
 //maximum subarray sum BRUTE FORCE
 #include<iostream>
 void maxSumSubArr(int *arr, int n){
-    int maxSum=0;
+    int maxSum=INT_MIN;
     for(int start = 0; start<n; start++){
         for(int end=start; end<n; end++){
             int currSum=0;
