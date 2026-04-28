@@ -23,8 +23,7 @@ void bubbleSort(int *arr, int n){
         // }
         
     }
-     printArr(arr, n);
-
+     
 }
 
 /*optimize
