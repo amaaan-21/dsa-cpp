@@ -14,7 +14,7 @@ int main(){
     cout<<"your word is : "<<input<<endl;
     cout<<"you length of char is : "<<strlen(input)<<endl;
     char sentenceInput[60];
-    cin.getline(sentenceInput, 50);//to print space also
+    cin.getline(sentenceInput, 50, '*');//to print space also--the '*' is delimitter if i type * after that nothing is count
     cout<<"your add for sentence is : "<<sentenceInput<<endl;
     cout<<"your length of sentences is : "<<strlen(sentenceInput)<<endl;
 
