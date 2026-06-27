@@ -8,6 +8,8 @@ This repository is part of my learning journey in DSA. I use it to practice prob
 
 - Arrays (Part 1)
     Reverse Array Extra Space [21-04-2026  5:36 PM]
+     Reverse Array Without Extra Space [21-04-2026  6:28 PM]
+     Bianry search 21April 9:22PMa
 
 ## About
 
