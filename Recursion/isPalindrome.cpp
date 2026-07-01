@@ -13,7 +13,7 @@ false
 #include<iostream>
 #include<vector>
 using namespace std;
-bool isPlindrome(vector<int>& arr, int left, int right){
+bool isPalindrome(vector<int>& arr, int left, int right){
     
     
     // base case 
@@ -29,7 +29,7 @@ return true;
 
 int main(){
     vector<int> tpp={1,2,3,2,1};
-    cout<<isPlindrome(tpp, 0,tpp.size()-1);
+    cout<<isPalindrome(tpp, 0,tpp.size()-1);
 
     return 0;
 }
