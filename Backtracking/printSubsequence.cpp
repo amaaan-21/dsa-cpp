@@ -12,10 +12,9 @@ void printSubsequence( vector<int>& arr, vector<int>& CurrentSubsequence, int in
         for(int i=0; i<CurrentSubsequence.size(); i++){
             cout<<CurrentSubsequence[i]<<" ";
         }
-        cout<<endl;
-        return;
-        
+        cout<<endl;   
     }
+    return;
     ////add element from origin arr to CurrentSubsequence like add fruits from (shelf=arr never change) to basket
     CurrentSubsequence.push_back(arr[index]);
     //now one work at one time so we move to next work so called recursive
