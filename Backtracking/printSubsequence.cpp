@@ -52,4 +52,4 @@ int main(){
     }
 
 
-    //note: It take my 4 hour but it's worth.
+   // Note: It took me 4 hours to truly understand backtracking, but it was worth every minute.
