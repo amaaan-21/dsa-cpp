@@ -25,7 +25,7 @@ void changeArr(int arr[], int n, int i){
 
 int main(){
     int arr[5]={0};
-    int n=5;
+    int n=4;
     changeArr(arr, n,0);
     cout<<endl;
     printArr(arr,n);
