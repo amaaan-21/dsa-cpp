@@ -101,7 +101,21 @@ void pop_back(){
     delete tail;
     tail = temp;
 }
+int searchItr(int key){
+    Node* temp = head;
+    int idx = 0;
+    while(temp != NULL){
+        if(temp -> data == key){
+            cout<<"idx = "<< idx<<endl;
+            return idx;
+        }
+        temp = temp -> next;
+        idx++;
+    }
+  
+    return -1;
 
+}
 
 
        
@@ -119,6 +133,7 @@ int main () {
     ll.push_front(9);
     ll.pop_front();
     ll.pop_back();
+    ll.searchItr(30);
     ll.printList();
 
     return 0;
