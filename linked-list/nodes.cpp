@@ -92,6 +92,15 @@ void pop_front(){
     delete temp;
 }
 
+void pop_back(){
+    Node* temp = head;
+    while ( temp -> next -> next != NULL){
+        temp = temp -> next;
+    }
+    temp -> next = NULL;
+    delete tail;
+    tail = temp;
+}
 
 
 
@@ -108,6 +117,8 @@ int main () {
     ll.push_back(6);
     ll.push_back(7);
     ll.push_front(9);
+    ll.pop_front();
+    ll.pop_back();
     ll.printList();
 
     return 0;
