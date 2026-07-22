@@ -82,6 +82,17 @@ void insert(int val, int pos){
 
 }
 
+void pop_front(){
+    if(head == NULL){
+        cout<< "LL is empty\n";
+    }
+    Node* temp = head;
+    head = head->next;
+    temp->next = NULL;
+    delete temp;
+}
+
+
 
 
        
