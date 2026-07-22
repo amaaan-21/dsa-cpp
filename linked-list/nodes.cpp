@@ -11,6 +11,14 @@ public:
         data = val;
         next = NULL;
     }
+
+    ~Node(){
+        if(next != NULL){
+            delete next;
+            next = NULL;
+        }
+    }
+
 };
 
 class List{
@@ -21,6 +29,14 @@ public:
         head = NULL;
         tail = NULL;
     }
+~List(){
+    if(head != NULL){
+        delete head;
+        head = NULL;
+    }
+}
+
+
 void push_front(int val){
     Node* newNode = new Node(val);//dynamic
     
@@ -48,6 +64,25 @@ void printList(){
         temp = temp -> next;
     }
 }
+
+void insert(int val, int pos){
+    Node* newNode = new Node(val);
+    Node* temp = head;
+    for(int i = 0; i<pos-1; i++){
+        // if(temp == NULL){
+        //     cout<<"invalid postion\n";
+        //     return;
+        // }
+    temp = temp -> next;
+    }
+    //temp is now pos-1 i.e. prev/left
+
+    newNode -> next = temp -> next;
+    temp -> next = newNode;
+
+}
+
+
 
        
 };
