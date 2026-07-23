@@ -161,6 +161,31 @@ void reverse(){
     }
     head = prev;
 }
+//size of LL
+int getsize(){
+    int n = 0;
+    Node* temp = head;
+
+    while(temp != NULL){
+        temp = temp -> next;
+        n++;
+    }
+    return n;
+}
+
+
+
+//remove node from n pos
+void removeNth(int n) {
+    int size = getsize();
+    Node* prev = head;
+    for ( int i = 0; i < ( size - n); i++){
+        prev = prev -> next;
+    }
+    Node* toDel = prev -> next;
+    cout<< "going to delete : " << toDel -> data << endl;
+    prev = prev -> next -> next;
+}
 
        
 };
@@ -185,6 +210,12 @@ int main () {
 cout<<endl;
 cout<<"reverse LL \n";
    ll.reverse();
+  
    ll.printList();
+
+
+   cout<<" delete n postion \n";
+    ll.removeNth(2);
+    ll.printList();
     return 0;
 }
