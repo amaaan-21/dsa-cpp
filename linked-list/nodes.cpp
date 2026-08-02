@@ -147,7 +147,17 @@ int helper(Node* temp, int key){
 int searchRec(int key){
     return helper(head, key );
 }
+//size of LL
+int getsize(){
+    int n = 0;
+    Node* temp = head;
 
+    while(temp != NULL){
+        temp = temp -> next;
+        n++;
+    }
+    return n;
+}
 //reverse linked list
 void reverse(){
     Node* curr = head;
@@ -160,18 +170,19 @@ void reverse(){
         curr = next;
     }
     head = prev;
-}
-//size of LL
-int getsize(){
-    int n = 0;
-    Node* temp = head;
-
-    while(temp != NULL){
-        temp = temp -> next;
-        n++;
+    int size=getsize();
+    for(int i = 0; i<size; i++){
+        if(curr == prev){
+            return;
+            curr=curr->next;
+            prev = prev ->next;
+        }
+        else{cout<<"not palindrom";}
     }
-    return n;
+
+    
 }
+
 
 
 
@@ -192,30 +203,30 @@ void removeNth(int n) {
 
 int main () {
     List ll;
-    ll.push_front(3);
+    ll.push_front(1);
     ll.push_front(2);
     ll.push_front(1);
-    ll.printList();
-    cout<<endl;
-    ll.push_back(6);
-    ll.push_back(7);
-    ll.push_front(9);
-    ll.pop_front();
-    ll.pop_back();
-    ll.searchItr(30);
+//     ll.printList();
+//     cout<<endl;
+//     ll.push_back(6);
+//     ll.push_back(7);
+//     ll.push_front(9);
+//     ll.pop_front();
+//     ll.pop_back();
+//     ll.searchItr(30);
     
-    ll.printList();
-    cout<<endl;
-   cout<< ll.searchRec(35);
-cout<<endl;
+//     ll.printList();
+//     cout<<endl;
+//    cout<< ll.searchRec(35);
+// cout<<endl;
 cout<<"reverse LL \n";
    ll.reverse();
   
    ll.printList();
 
 
-   cout<<" delete n postion \n";
-    ll.removeNth(2);
-    ll.printList();
+//    cout<<" delete n postion \n";
+//     ll.removeNth(2);
+//     ll.printList();
     return 0;
 }
