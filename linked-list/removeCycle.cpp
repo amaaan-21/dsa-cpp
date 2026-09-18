@@ -38,6 +38,16 @@ public:
             head = newNode;
         }
     }
+      // push _ back ( ) ;
+ void push_back(int val){
+    Node* newNode= new Node(val);
+    if(head== NULL) {
+        head = tail = newNode;
+    } else {
+        tail -> next = newNode;
+        tail = newNode;
+    }
+}
 
         void pop_front(int val){
             if(head == NULL) {
@@ -102,6 +112,64 @@ public:
 
         }
 
+        Node* splitAtMid(Node* head) {
+            Node* slow = head;
+            Node* fast = head;
+            Node* prev = NULL;
+
+            while(fast != NULL && fast -> next != NULL){
+                prev = slow;
+                slow = slow -> next;
+                fast = fast -> next -> next;
+            }
+            if(prev != NULL ){
+                prev -> next = NULL; //split at middle
+            }
+            
+            return slow; //slow= new right head;
+        }
+
+        Node* merge(Node* left, Node* right){
+            List ans;
+            Node* i = left;
+            Node* j = right;
+
+            while(i != NULL && j != NULL){
+                if(i -> data <= j->data){
+                    ans.push_back(i->data);
+                    i = i -> next;
+                } else {
+                    ans.push_back( j -> data);
+                }
+            }
+
+            while( i != NULL){
+                ans.push_back( i -> data);
+                i = i -> next;
+            }
+
+            while( j != NULL){
+                ans.push_back( j -> data);
+                j = j -> next;
+            }
+
+            return ans.head;
+        }
+
+
+        Node* mergeSort(Node* head){
+            if(head == NULL || head -> next == NULL){
+                return head;
+            }
+            Node* rightHead = splitAtMid(head);
+
+            Node* left = mergeSort(head); //left head
+            Node * right = mergeSort(rightHead);//righthead
+
+           return merge(left, right); //head of sorted LL
+        }
+
+
 
     };
 
@@ -113,8 +181,9 @@ public:
         ll.push_front(2);
         ll.push_front(1);
         ll.push_front(9);
-        ll.tail->next = ll.head;
-        ll.removeCycle(ll.head);
+        // ll.tail->next = ll.head;
+        // ll.removeCycle(ll.head);
+        
         ll.printList(ll.head);
 
         return 0;
