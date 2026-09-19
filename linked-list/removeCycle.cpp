@@ -168,7 +168,47 @@ public:
 
            return merge(left, right); //head of sorted LL
         }
+    
+        Node* reverse(Node* head){
+            Node* prev = NULL;
+            Node* curr = head;
+            Node* next = NULL;
 
+            while( curr!= NULL){
+                next = curr -> next;
+                curr -> next = prev;
+
+                prev = curr;
+                curr = next;
+            }
+            return prev; //prev is head of rev
+            
+        }
+
+        Node* zigZag(Node* head){
+            Node* rightHead = splitAtMid(head);
+            Node* rightHeadRev = reverse(rightHead);
+            //alternate merging
+            Node* left= head;
+            Node* right= rightHeadRev;
+
+            while(left != NULL && right != NULL){
+                Node* nextLeft = left->next;
+                Node* nextRight = right->next;
+
+                left->next = right;
+                right -> next = nextLeft;
+
+                tail = right;
+
+                left = nextLeft;
+                right = nextRight;
+            }
+            if (right != NULL){
+                tail -> next = right;
+            }
+            return head;
+        }
 
 
     };
@@ -184,6 +224,8 @@ public:
         // ll.tail->next = ll.head;
         // ll.removeCycle(ll.head);
         
+        ll.printList(ll.head);
+        ll.head = ll.zigZag(ll.head);
         ll.printList(ll.head);
 
         return 0;
