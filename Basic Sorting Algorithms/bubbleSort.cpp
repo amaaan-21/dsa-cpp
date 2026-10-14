@@ -50,6 +50,7 @@ void bubbleSort(int *arr, int n){
 int main(){
     int arr[5]={5,4,2,3,1};
     bubbleSort(arr, 5);
+    printArr(arr, 5);
 
     return 0;
 }
