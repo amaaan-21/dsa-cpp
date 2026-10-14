@@ -1,69 +1,67 @@
 //i am writing a code to find the cycle detection in graph
 #include<iostream>
-#include<vector>
+#include<string>
+#include<queue>
 #include<list>
+#include<vector>
 using namespace std;
 
 class Graph{
-    int V;
+    int v;
     list<int> *l;
 public:
-    Graph(int vert){
-        V = vert;
-        l = new list<int>[V];
+    Graph(int v){
+        this-> v = v;
+        l = new list<int> [v];
     }
+
     void addEdge(int u, int v){
         l[u].push_back(v);
-        l[v].push_back(u);
+        l[v]. push_back(u);
     }
     void print(){
-        for(int i = 0; i<V; i++){
-            list<int> neighbours =l[i];
+        for(int i = 0; i < v; i++){
+            list<int> neighbors = l[i];
             cout<< i << " : ";
-            for(int v : neighbours){
-                cout<< v << " ";
+            for(int v : neighbors){
+                cout<< v <<" " ;
             }
             cout<<endl;
         }
     }
 
-    void dfsHelper(int u, vector<bool> &vis, int par){
-        vis[u] = true;
-        cout<<u <<" ";
-        list<int> neighbours = l[u];
-        for(int v: neighbours){
+    bool underectedCycleHelper(int src, int par, vector<bool>& vis){
+        vis[src] = true;
+        list<int> neighbors = l[src];
+
+        for(int v : neighbors){
             if(!vis[v]){
-                dfsHelper(v, vis,3);
-            }else if(v == par){
-                cout<<"it has cycle"<<endl;
-                return ;
+                if(underectedCycleHelper(v,src,vis)){
+                return true; 
+                        }   
+                } else if (v!=par){
+                    return true;
+                }
             }
-             if(v!=par){
-         cout<< "it has no cycle";}
-            
-            
-        }
-       
-         
+        return false;
     }
-   
-    void dfsFindCycle(){
-        vector<bool>vis(V, false);
-        dfsHelper(5, vis,3);
-        cout<<endl;
+
+    bool isCycleUndirected (){ 
+        vector<bool> vis(v,false);
+        return underectedCycleHelper(0, -1, vis);
     }
-    
+
 };
 
-
-int main(){
-    Graph g(6);
+int main (){
+    Graph g(4);
+    g.addEdge(0,1);
     g.addEdge(1,2);
-    g.addEdge(3,5);
-    g.addEdge(2,6);
-    g.addEdge(1,3);
+    g.addEdge(2,0);
+
     g.print();
-    g.dfsFindCycle();
+
+    cout<< g.isCycleUndirected()<< endl;
 
     return 0;
 }
