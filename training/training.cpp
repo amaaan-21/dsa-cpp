@@ -1,17 +1,12 @@
-//write a recursive funnction to find
-//    x^n
-
+//string;
 #include<iostream>
+#include <string>
 using namespace std;
-int product(int x, int n){
-    //base case
-    if(n == 0){
-        return 1;
-    }
-
-    return x * product(x, n-1);
-}
 int main (){
-    cout<<product(2,8);
+    string s;
+    s ="hello";
+    cout<<s<<endl;
+
     return 0;
 }
+
