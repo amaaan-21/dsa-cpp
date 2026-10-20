@@ -23,6 +23,6 @@ int product(int x, int n){
     return x* product(x, n-1);
 }
 int main(){
-    cout<<product(2,2);
+    cout<<product(2,8);
     return 0;
 }

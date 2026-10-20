@@ -3,6 +3,8 @@
 #include<vector>
 #include<list>
 #include<queue>
+using namespace std;
+
 
 class Graph{
     int v;
@@ -13,7 +15,7 @@ public:
         l = new list<int> [v];
     }
 
-    void addEdge(){
+    void addEdge(int u, int v){
         l[u].push_back(v);
         l[v].push_back(u);
 
@@ -23,7 +25,7 @@ public:
         for(int i = 0; i < v; i++){
             list<int> neighbors = l[i];
             cout<< i <<" : ";
-            fot(int v ){
+            for(int v : neighbors ){
                 cout<< v <<" " ;
             }
             cout << endl;
@@ -37,7 +39,8 @@ public:
         list<int> neighbors = l[u];
         for( int v: neighbors) {
             if(!vis[v]) {
-                dfsHelper(i, vis);//starting pt = i
+                dfsHelper(v, vis);//starting pt = i
+               
             }
         }
         cout<<endl;
@@ -48,8 +51,27 @@ public:
         for(int i = 0; i < v; i++){
             if(!vis[i]){
                 dfsHelper(i,vis);
+                 cout<<endl;
             }
         }
         cout<< endl;
     }
-    
+};
+
+    int main(){
+        Graph g(10);
+        g.addEdge(1,6);
+        g.addEdge(6,4);
+        g.addEdge(4,9);
+        g.addEdge(4,3);
+        g.addEdge(3,8);
+        g.addEdge(3,7);
+        g.addEdge(2,5);
+        g.addEdge(2,0);
+
+        g.dfs();
+
+
+        return 0;
+    }
+
